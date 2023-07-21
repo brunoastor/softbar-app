@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:barcode/controller/objectbox.dart';
-
 import 'package:barcode/view/scanner/scanner.dart';
 
 late ObjectBox objectbox;

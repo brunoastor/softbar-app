@@ -1,5 +1,5 @@
-import 'dart:collection';
-
+import 'package:barcode/model/produto.dart';
+import 'package:barcode/objectbox.g.dart';
 import 'package:flutter/material.dart';
 import 'scanner_overlay.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
@@ -13,8 +13,6 @@ class Scanner extends StatefulWidget {
 
 class _ScannerState extends State<Scanner> {
   MobileScannerController cameraController = MobileScannerController();
-
-  var index = 0;
 
   @override
   void initState() {
@@ -43,10 +41,7 @@ class _ScannerState extends State<Scanner> {
   void _foundBarCode(BarcodeCapture barcode) {
     final List<Barcode> codes = barcode.barcodes;
     for (final barcode in codes) {
-      final Map<int, String> values = HashMap();
-      values.addAll({index : '${barcode.rawValue}'});
-      index++;
-      print(values);
+
     }
   }
 }
