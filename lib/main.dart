@@ -1,6 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:barcode/controller/objectbox.dart';
+import 'package:barcode/view/reads/editscreen.dart';
 import 'package:barcode/view/scanner/scanner.dart';
+import 'package:barcode/controller/objectbox.dart';
+import 'package:flutter/material.dart';
 
 late ObjectBox objectbox;
 
@@ -13,7 +14,6 @@ Future<void> main() async {
 
   runApp(const MyApp());
 }
-
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -53,10 +53,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
     switch (_selectedIndex) {
       case 0 :
-        page = const Scanner();
+        page = Scanner();
         break;
       case 1:
-        page = const Placeholder();
+        page = EditScreen();
         break;
       default:
         throw UnimplementedError('no widget for $_selectedIndex');
@@ -83,5 +83,4 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
-
 }

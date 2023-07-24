@@ -5,10 +5,11 @@ class Produto {
 
   @Id()
   int id = 0;
-  String? barcode;
-  int? quantidade;
+  String barcode;
+  int quantidade;
 
   @Transient() // Ignore this property, not stored in the database.
   int? computedProperty;
 
+  Produto(this.barcode, this.quantidade);
 }

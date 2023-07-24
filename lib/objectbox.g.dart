@@ -87,8 +87,7 @@ ModelDefinition getObjectBoxModel() {
           object.id = id;
         },
         objectToFB: (Produto object, fb.Builder fbb) {
-          final barcodeOffset =
-              object.barcode == null ? null : fbb.writeString(object.barcode!);
+          final barcodeOffset = fbb.writeString(object.barcode);
           fbb.startTable(4);
           fbb.addInt64(0, object.id);
           fbb.addOffset(1, barcodeOffset);
@@ -100,12 +99,11 @@ ModelDefinition getObjectBoxModel() {
           final buffer = fb.BufferContext(fbData);
           final rootOffset = buffer.derefObject(0);
 
-          final object = Produto()
-            ..id = const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0)
-            ..barcode = const fb.StringReader(asciiOptimization: true)
-                .vTableGetNullable(buffer, rootOffset, 6)
-            ..quantidade =
-                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 8);
+          final object = Produto(
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGet(buffer, rootOffset, 6, ''),
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 8, 0))
+            ..id = const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
 
           return object;
         })
