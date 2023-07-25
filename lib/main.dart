@@ -6,8 +6,6 @@ import 'package:flutter/material.dart';
 late ObjectBox objectbox;
 
 Future<void> main() async {
-  // This is required so ObjectBox can get the application directory
-  // to store the database in.
   WidgetsFlutterBinding.ensureInitialized();
 
   objectbox = await ObjectBox.create();
@@ -53,10 +51,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
     switch (_selectedIndex) {
       case 0 :
-        page = Scanner();
+        page = const Scanner();
         break;
       case 1:
-        page = EditScreen();
+        page = const EditScreen();
         break;
       default:
         throw UnimplementedError('no widget for $_selectedIndex');

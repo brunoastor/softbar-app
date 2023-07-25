@@ -27,8 +27,9 @@ class _EditScreenState extends State<EditScreen> {
 
   GestureDetector Function(BuildContext, int) _itemBuilder(List<Produto> conferencia) =>
           (BuildContext context, int index) => GestureDetector(
-        onDoubleTap: () => objectbox.removeProduto(conferencia[index].id),
-        child: Row(
+
+          onDoubleTap: () => objectbox.removeProduto(conferencia[index].id),
+          child: Row(
           children: <Widget>[
             Expanded(
               child: Container(

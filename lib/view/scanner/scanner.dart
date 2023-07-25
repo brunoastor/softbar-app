@@ -6,14 +6,12 @@ import 'package:barcode/main.dart';
 class Scanner extends StatefulWidget {
   const Scanner({Key? key}) : super(key: key);
 
-
   @override
   State<Scanner> createState() => _ScannerState();
 }
 
 class _ScannerState extends State<Scanner> {
   MobileScannerController cameraController = MobileScannerController();
-
 
   @override
   void initState() {
@@ -29,7 +27,7 @@ class _ScannerState extends State<Scanner> {
             MobileScanner(
                 controller: MobileScannerController(
                   detectionSpeed: DetectionSpeed.normal,
-                  detectionTimeoutMs: 500,
+                  detectionTimeoutMs: 2000,
                 ),
                 startDelay: true,
                 onDetect: _foundBarCode
