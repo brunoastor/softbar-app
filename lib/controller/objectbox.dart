@@ -27,11 +27,9 @@ class ObjectBox {
         .map((query) => query.find());
   }
 
-  Future<void> addProduto(String text) => _produtoBox.putAsync(Produto(text, 9999));
-
   Future<void> removeProduto(int id) => _produtoBox.removeAsync(id);
 
-  Future<void> addBarcode(String text) async {
+  Future<void> addProduto(String text) async {
     Query<Produto> query = _produtoBox.query(Produto_.barcode.equals(text)).build();
     List<Produto> barcodes = query.find();
     if(barcodes.isEmpty){

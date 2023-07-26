@@ -42,7 +42,7 @@ class _ScannerState extends State<Scanner> {
   Future<void> _foundBarCode(BarcodeCapture barcode) async {
     final List<Barcode> codes = barcode.barcodes;
     for (final barcode in codes) {
-      await objectbox.addBarcode(barcode.rawValue.toString());
+      await objectbox.addProduto(barcode.rawValue.toString());
     }
     _playSound();
   }

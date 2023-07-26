@@ -25,10 +25,10 @@ class _EditScreenState extends State<EditScreen> {
     super.dispose();
   }
 
-  GestureDetector Function(BuildContext, int) _itemBuilder(List<Produto> conferencia) =>
+  GestureDetector Function(BuildContext, int) _itemBuilder(List<Produto> produto) =>
           (BuildContext context, int index) => GestureDetector(
 
-          onDoubleTap: () => objectbox.removeProduto(conferencia[index].id),
+          onDoubleTap: () => objectbox.removeProduto(produto[index].id),
           child: Row(
           children: <Widget>[
             Expanded(
@@ -43,7 +43,7 @@ class _EditScreenState extends State<EditScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        conferencia[index].barcode,
+                        produto[index].barcode,
                         style: const TextStyle(
                           fontSize: 15.0,
                         ),
@@ -53,7 +53,7 @@ class _EditScreenState extends State<EditScreen> {
                       Padding(
                         padding: const EdgeInsets.only(top: 5.0),
                         child: Text(
-                          'Quantidade : ${conferencia[index].quantidade.toString()}',
+                          'Quantidade : ${produto[index].quantidade.toString()}',
                           style: const TextStyle(
                             fontSize: 12.0,
                           ),
