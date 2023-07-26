@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'scanner_overlay.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
@@ -43,5 +44,12 @@ class _ScannerState extends State<Scanner> {
     for (final barcode in codes) {
       await objectbox.addBarcode(barcode.rawValue.toString());
     }
+    _playSound();
+  }
+
+  Future<void> _playSound() async {
+    final player = AudioPlayer();
+    await player.setSource(AssetSource('beep.mp3'));
+    await player.resume();
   }
 }
