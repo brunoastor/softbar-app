@@ -117,9 +117,7 @@ class _EditScreenState extends State<EditScreen> {
                   itemCount: snapshot.hasData ? snapshot.data!.length : 0,
                   itemBuilder: _itemBuilder(snapshot.data ?? []))))
     ]),
-    // We need a separate submit button because flutter_driver integration
-    // test doesn't support submitting a TextField using "enter" key.
-    // See https://github.com/flutter/flutter/issues/9383
+
     floatingActionButton: FloatingActionButton(
       key: const Key('submit'),
       onPressed: _addNote,

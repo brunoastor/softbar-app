@@ -15,14 +15,14 @@ class ScannerOverlay extends StatelessWidget {
     return Stack(children: [
       ColorFiltered(
         colorFilter: ColorFilter.mode(
-            overlayColour, BlendMode.srcOut), // This one will create the magic
+            overlayColour, BlendMode.srcOut),
         child: Stack(
           children: [
             Container(
               decoration: const BoxDecoration(
                   color: Colors.red,
                   backgroundBlendMode: BlendMode
-                      .dstOut), // This one will handle background + difference out
+                      .dstOut),
             ),
             Align(
               alignment: Alignment.center,

@@ -8,7 +8,7 @@ class Produto {
   String barcode;
   int quantidade;
 
-  @Transient() // Ignore this property, not stored in the database.
+  @Transient()
   int? computedProperty;
 
   Produto(this.barcode, this.quantidade);
